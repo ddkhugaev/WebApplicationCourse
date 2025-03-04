@@ -30,6 +30,12 @@ public class HomeController : Controller
         return result;
     }
 
+    public string Index(int id)
+    {
+        Product product = new Product($"Name{id}", id, $"Description{id}");
+        return product.ToString();
+    }
+
     public IActionResult Privacy()
     {
         return View();
