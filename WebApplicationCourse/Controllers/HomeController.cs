@@ -13,9 +13,21 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    //public IActionResult Index()
+    //{
+    //    return View();
+    //}
+
+    public string Index()
     {
-        return View();
+        List<Product> products = new List<Product>();
+        string result = "";
+        for (int i = 0; i < 3; i++)
+        {
+            products.Add(new Product($"Name{i}", i, $"Description{i}"));
+            result += products[i] + "\n";
+        }
+        return result;
     }
 
     public IActionResult Privacy()
