@@ -13,9 +13,15 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    //public IActionResult Index()
+    //{
+    //    return View();
+    //}
+
+    public List<Product> Index()
     {
-        return View();
+        List<Product> products = [new Product("Картье", 200, "Хороший"), new Product("Портье", 4500, "Тоже хороший")];
+        return products;
     }
 
     public IActionResult Privacy()
