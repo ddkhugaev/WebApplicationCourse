@@ -8,9 +8,13 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
+    readonly ProductRepository productRepository;
+
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
+
+        productRepository = new ProductRepository();
     }
 
     //public IActionResult Index()
@@ -18,17 +22,14 @@ public class HomeController : Controller
     //    return View();
     //}
 
-    public string Index(int id=-1)
+    
+    public string Index()
     {
+        List<Product> products = productRepository.GetAll();
         string ans = "";
-        List<Product> products = [new Product("Картье", 200, "Хороший"), new Product("Портье", 4500, "Тоже хороший")];
         foreach (var product in products)
         {
-            if (product.Id == id)
-            {
-                return product.ToString();
-            }
-            ans += product.ToString() + "\n";
+            ans += product.ToString() + "\n\n";
         }
         return ans;
     }

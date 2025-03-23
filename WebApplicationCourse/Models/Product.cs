@@ -4,9 +4,9 @@
     {
         static int instanceCounter = 0;
         public int Id { get; }
-        public string Name { get; set; }
-        public decimal Cost { get; set; }
-        public string Description { get; set; }
+        public string Name { get; }
+        public decimal Cost { get; }
+        public string Description { get; }
         public Product(string name, decimal cost, string description)
         {
             Id = instanceCounter;
@@ -17,7 +17,7 @@
         }
         public override string ToString()
         {
-            return $"Id: {Id}\nName: {Name}\nCost: {Cost}р.\nDescription: {Description}";
+            return $"Id: {Id}\nName: {Name}\nCost: {Cost}р.";
         }
     }
 }
