@@ -18,10 +18,19 @@ public class HomeController : Controller
     //    return View();
     //}
 
-    public List<Product> Index()
+    public string Index(int id=-1)
     {
+        string ans = "";
         List<Product> products = [new Product("Картье", 200, "Хороший"), new Product("Портье", 4500, "Тоже хороший")];
-        return products;
+        foreach (var product in products)
+        {
+            if (product.Id == id)
+            {
+                return product.ToString();
+            }
+            ans += product.ToString() + "\n";
+        }
+        return ans;
     }
 
     public IActionResult Privacy()
