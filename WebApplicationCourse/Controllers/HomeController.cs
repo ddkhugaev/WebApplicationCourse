@@ -17,21 +17,9 @@ public class HomeController : Controller
         productRepository = new ProductRepository();
     }
 
-    //public IActionResult Index()
-    //{
-    //    return View();
-    //}
-
-    
-    public string Index()
+    public IActionResult Index()
     {
-        List<Product> products = productRepository.GetAll();
-        string ans = "";
-        foreach (var product in products)
-        {
-            ans += product.ToString() + "\n\n";
-        }
-        return ans;
+        return View();
     }
 
     public IActionResult Privacy()
@@ -44,4 +32,15 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    //public string Index()
+    //{
+    //    List<Product> products = productRepository.GetAll();
+    //    string ans = "";
+    //    foreach (var product in products)
+    //    {
+    //        ans += product.ToString() + "\n\n";
+    //    }
+    //    return ans;
+    //}
 }
