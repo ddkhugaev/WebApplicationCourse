@@ -1,5 +1,7 @@
 ﻿@model Product
-
+@{
+    ViewData["Title"] = Model.Name;
+}
 <div class="row">
     <img class="col-6" src=@Model.ImagePath>
     <div class="col-6">
