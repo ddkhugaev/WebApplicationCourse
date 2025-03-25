@@ -25,9 +25,6 @@ namespace WebApplicationCourse
                     ItemsCart = new List<ItemCart>
                     {
                         new ItemCart(product, 1)
-                        {
-                            Id = Guid.NewGuid()
-                        }
                     }
                 };
                 carts.Add(newCart);
@@ -41,11 +38,7 @@ namespace WebApplicationCourse
                 }
                 else
                 {
-                    existingCart.AddPositionToCart(new ItemCart(product, 1)
-                    {
-                        Id = Guid.NewGuid()
-                    }
-                    );
+                    existingCart.AddPositionToCart(new ItemCart(product, 1));
                 }
             }
         }

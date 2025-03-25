@@ -8,6 +8,7 @@
         public decimal Total { get; set; }
         public ItemCart(Product prod, int count)
         {
+            Id = Guid.NewGuid();
             Prod = prod;
             Count = count;
             Total = Prod.Cost * count;
