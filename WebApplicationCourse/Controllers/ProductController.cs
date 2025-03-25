@@ -5,14 +5,14 @@ namespace WebApplicationCourse.Controllers
 {
     public class ProductController : Controller
     {
-        readonly ProductRepository productRepository;
+        readonly ProductsRepository productsRepository;
         public ProductController()
         {
-            productRepository = new ProductRepository();
+            productsRepository = new ProductsRepository();
         }
         public IActionResult Index(int id)
         {
-            var product = productRepository.TryGetById(id);
+            var product = productsRepository.TryGetById(id);
             if (product == null)
             {
                 return View(null);
@@ -21,7 +21,7 @@ namespace WebApplicationCourse.Controllers
         }
         public IActionResult Catalog()
         {
-            var products = productRepository.GetAll();
+            var products = productsRepository.GetAll();
             return View(products);
         }
         //public string Index(int id)

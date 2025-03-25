@@ -2,13 +2,13 @@
 
 namespace WebApplicationCourse
 {
-    public class ProductRepository
+    public class ProductsRepository
     {
         static List<Product> products =
             [
-            new Product("Картье", 200, "Хороший"),
-            new Product("Портье", 4500, "Тоже хороший"),
-            new Product("Еще товар", 300, "Неплохой")
+            new Product("Картье", 200, "Хороший", "/images/productImage.jpg"),
+            new Product("Портье", 4500, "Тоже хороший", "/images/productImage.jpg"),
+            new Product("Еще товар", 300, "Неплохой", "/images/productImage.jpg")
             ];
         public List<Product> GetAll()
         {

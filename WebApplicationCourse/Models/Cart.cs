@@ -1,18 +1,26 @@
-﻿namespace WebApplicationCourse.Models
+﻿using Microsoft.AspNetCore.SignalR;
+
+namespace WebApplicationCourse.Models
 {
     public class Cart
     {
-        public List<PositionCart> PositionsCart = new List<PositionCart>();
-        public decimal Cost { get; set; }
-        public void AddPositionToCart(PositionCart positionCart)
-        {
-            PositionsCart.Add(positionCart);
-            Cost += positionCart.Total;
+        public Guid Id { get; set; }
+        public string UserId { get; set; } = Constants.UserId;
+
+        public List<ItemCart> ItemsCart = new List<ItemCart>();
+        public decimal Cost { 
+            get
+            {
+                return ItemsCart.Sum(itemCart => itemCart.Total);
+            }
         }
-        public void RemovePositionFromCart(PositionCart positionCart)
+        public void AddPositionToCart(ItemCart itemCart)
         {
-            PositionsCart.Remove(positionCart);
-            Cost -= positionCart.Total;
+            ItemsCart.Add(itemCart);
+        }
+        public void RemovePositionFromCart(ItemCart positionCart)
+        {
+            ItemsCart.Remove(positionCart);
         }
     }
 }

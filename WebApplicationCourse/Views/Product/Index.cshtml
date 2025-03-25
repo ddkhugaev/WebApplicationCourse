@@ -1,12 +1,12 @@
 ﻿@model Product
 
-<div class="col-3 card">
-    <img class="card-img-top" src="~/images/productImage.jpg">
-    <div class="card-body">
+<div class="row">
+    <img class="col-6" src=@Model.ImagePath>
+    <div class="col-6">
         <p>@Model.Name</p>
         <p>@Model.Cost</p>
         <p>@Model.Description</p>
         <a class="btn btn-dark" href="/product/catalog">Продолжить покупки</a>
-        <a class="btn btn-dark" href="#">Добавить в корзину</a>
+        <a class="btn btn-dark" href="/cart/add?productid=@Model.Id">Добавить в корзину</a>
     </div>
 </div>

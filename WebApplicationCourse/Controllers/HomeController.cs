@@ -8,13 +8,13 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    readonly ProductRepository productRepository;
+    readonly ProductsRepository productsRepository;
 
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
 
-        productRepository = new ProductRepository();
+        productsRepository = new ProductsRepository();
     }
 
     public IActionResult Index()
