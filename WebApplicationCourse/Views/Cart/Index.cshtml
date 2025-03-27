@@ -2,16 +2,18 @@
 @{
     ViewData["Title"] = "Корзина";
 }
-@if (Model != null)
+@if (Model != null && Model.ItemsCart.Count > 0)
 {
     <div class="row">
         <table class="table">
             <thead>
                 <tr>
-                    <td>Название позиции</td>
-                    <td>Цена товара руб</td>
-                    <td>Количество товара в позиции</td>
-                    <td>Сумма позиции руб</td>
+                    <td>Название</td>
+                    <td>Цена руб</td>
+                    <td>Количество</td>
+                    <td>Стоимость руб</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -22,12 +24,14 @@
                         <td>@itemCart.Prod.Cost</td>
                         <td>@itemCart.Count</td>
                         <td>@itemCart.Total</td>
+                        <td><a class="btn btn-dark" href="/cart/decreasecount?itemcartid=@itemCart.Id">-</a></td>
+                        <td><a class="btn btn-dark" href="/cart/increasecount?itemcartid=@itemCart.Id">+</a></td>
                     </tr>
                 }
             </tbody>
         </table>
         <div class="text-center">
-            <h3>Итоговая сумма: @Model.Cost руб</h3>
+            <h3>Итого: @Model.Cost руб</h3>
         </div>
         <div class="text-center">
             <a class="btn btn-dark" href="/product/catalog">Продолжить покупки</a>

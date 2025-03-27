@@ -13,15 +13,18 @@
             Count = count;
             Total = Prod.Cost * count;
         }
-        public void IncreaseCount(int count)
+        public void IncreaseCount()
         {
-            Count += count;
+            Count++;
             Total = Prod.Cost * Count;
         }
-        public void DecreaseCount(int count)
+        public void DecreaseCount()
         {
-            Count -= count;
-            Total = Prod.Cost * Count;
+            if (Count > 0)
+            {
+                Count--;
+                Total = Prod.Cost * Count;
+            }
         }
     }
 }

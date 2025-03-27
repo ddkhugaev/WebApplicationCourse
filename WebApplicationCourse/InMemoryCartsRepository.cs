@@ -34,7 +34,7 @@ namespace WebApplicationCourse
                 var existingItemCart = existingCart.ItemsCart.FirstOrDefault(itemCart => itemCart.Prod.Id == product.Id);
                 if (existingItemCart != null)
                 {
-                    existingItemCart.IncreaseCount(1);
+                    existingItemCart.IncreaseCount();
                 }
                 else
                 {

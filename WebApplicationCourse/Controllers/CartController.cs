@@ -24,5 +24,22 @@ namespace WebApplicationCourse.Controllers
             cartsRepository.Add(product, Constants.UserId);
             return RedirectToAction("Index");
         }
+        public IActionResult IncreaseCount(Guid itemCartId)
+        {
+            var cart = cartsRepository.TryGetById(Constants.UserId);
+            cart.ItemsCart.FirstOrDefault(itemCart => itemCart.Id == itemCartId).IncreaseCount();
+            return RedirectToAction("Index");
+        }
+        public IActionResult DecreaseCount(Guid itemCartId)
+        {
+            var cart = cartsRepository.TryGetById(Constants.UserId);
+            var itemCart = cart.ItemsCart.FirstOrDefault(itemCart => itemCart.Id == itemCartId);
+            itemCart.DecreaseCount();
+            if (itemCart.Count < 1)
+            {
+                cart.RemovePositionFromCart(itemCart);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
