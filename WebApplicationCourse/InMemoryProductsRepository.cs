@@ -2,9 +2,9 @@
 
 namespace WebApplicationCourse
 {
-    public class ProductsRepository
+    public class InMemoryProductsRepository : IProductsRepository
     {
-        static List<Product> products =
+        List<Product> products =
             [
             new Product("Картье", 200, "Хороший", "/images/productImage.jpg"),
             new Product("Портье", 4500, "Тоже хороший", "/images/productImage.jpg"),

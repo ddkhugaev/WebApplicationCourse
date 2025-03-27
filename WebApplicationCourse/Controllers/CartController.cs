@@ -5,10 +5,10 @@ namespace WebApplicationCourse.Controllers
 {
     public class CartController : Controller
     {
-        readonly ProductsRepository productsRepository;
-        readonly CartsRepository cartsRepository;
+        readonly IProductsRepository productsRepository;
+        readonly ICartsRepository cartsRepository;
 
-        public CartController(ProductsRepository productsRepository, CartsRepository cartsRepository)
+        public CartController(IProductsRepository productsRepository, ICartsRepository cartsRepository)
         {
             this.productsRepository = productsRepository;
             this.cartsRepository = cartsRepository;

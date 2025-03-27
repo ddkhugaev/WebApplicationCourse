@@ -2,7 +2,7 @@
 
 namespace WebApplicationCourse
 {
-    public class CartsRepository
+    public class InMemoryCartsRepository : ICartsRepository
     {
         List<Cart> carts = new List<Cart>();
         public Cart TryGetById(string userId)
