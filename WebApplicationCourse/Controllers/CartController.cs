@@ -41,5 +41,9 @@ namespace WebApplicationCourse.Controllers
             }
             return RedirectToAction("Index");
         }
+        public IActionResult Ordering()
+        {
+            return View();
+        }
     }
 }
