@@ -6,9 +6,9 @@ namespace WebApplicationCourse.Controllers
     public class ProductController : Controller
     {
         readonly ProductsRepository productsRepository;
-        public ProductController()
+        public ProductController(ProductsRepository productsRepository)
         {
-            productsRepository = new ProductsRepository();
+            this.productsRepository = productsRepository;
         }
         public IActionResult Index(int id)
         {

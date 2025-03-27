@@ -6,19 +6,22 @@ namespace WebApplicationCourse.Controllers
     public class CartController : Controller
     {
         readonly ProductsRepository productsRepository;
-        public CartController()
+        readonly CartsRepository cartsRepository;
+
+        public CartController(ProductsRepository productsRepository, CartsRepository cartsRepository)
         {
-            productsRepository = new ProductsRepository();
+            this.productsRepository = productsRepository;
+            this.cartsRepository = cartsRepository;
         }
         public IActionResult Index()
         {
-            var cart = CartsRepository.TryGetById(Constants.UserId);
+            var cart = cartsRepository.TryGetById(Constants.UserId);
             return View(cart);
         }
         public IActionResult Add(int productId)
         {
             var product = productsRepository.TryGetById(productId);
-            CartsRepository.Add(product, Constants.UserId);
+            cartsRepository.Add(product, Constants.UserId);
             return RedirectToAction("Index");
         }
     }

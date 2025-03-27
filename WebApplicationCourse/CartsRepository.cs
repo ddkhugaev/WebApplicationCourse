@@ -2,18 +2,18 @@
 
 namespace WebApplicationCourse
 {
-    public static class CartsRepository
+    public class CartsRepository
     {
-        static List<Cart> carts = new List<Cart>();
-        public static Cart TryGetById(string userId)
+        List<Cart> carts = new List<Cart>();
+        public Cart TryGetById(string userId)
         {
             return carts.FirstOrDefault(cart => cart.UserId == userId);
         }
-        public static List<Cart> GetAll()
+        public List<Cart> GetAll()
         {
             return carts;
         }
-        public static void Add(Product product, string userId)
+        public void Add(Product product, string userId)
         {
             var existingCart = TryGetById(userId);
             if (existingCart == null)

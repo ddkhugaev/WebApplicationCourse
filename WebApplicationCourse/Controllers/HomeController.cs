@@ -8,13 +8,9 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    readonly ProductsRepository productsRepository;
-
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-
-        productsRepository = new ProductsRepository();
     }
 
     public IActionResult Index()
@@ -32,15 +28,4 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-
-    //public string Index()
-    //{
-    //    List<Product> products = productRepository.GetAll();
-    //    string ans = "";
-    //    foreach (var product in products)
-    //    {
-    //        ans += product.ToString() + "\n\n";
-    //    }
-    //    return ans;
-    //}
 }

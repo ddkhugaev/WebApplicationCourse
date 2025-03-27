@@ -1,6 +1,10 @@
+using WebApplicationCourse;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSingleton<ProductsRepository>();
+builder.Services.AddSingleton<CartsRepository>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
