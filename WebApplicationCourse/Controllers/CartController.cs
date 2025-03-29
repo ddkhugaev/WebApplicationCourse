@@ -41,9 +41,14 @@ namespace WebApplicationCourse.Controllers
             }
             return RedirectToAction("Index");
         }
-        public IActionResult Ordering()
+        public IActionResult Ordering(Guid cartId)
         {
-            return View();
+            return View(cartsRepository.TryGetById(Constants.UserId));
+        }
+        public IActionResult Success(Guid cartId)
+        {
+            cartsRepository.TryGetById(Constants.UserId).ItemsCart.Clear();
+            return RedirectToAction("Index");
         }
     }
 }
