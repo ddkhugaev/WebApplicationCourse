@@ -11,7 +11,14 @@ namespace WebApplicationCourse.Models
         public decimal Cost { 
             get
             {
-                return ItemsCart.Sum(itemCart => itemCart.Total);
+                return ItemsCart?.Sum(itemCart => itemCart.Total) ?? 0;
+            }
+        }
+        public int Amount
+        {
+            get
+            {
+                return ItemsCart?.Sum(itemCart => itemCart.Count) ?? 0;
             }
         }
         public void AddPositionToCart(ItemCart itemCart)

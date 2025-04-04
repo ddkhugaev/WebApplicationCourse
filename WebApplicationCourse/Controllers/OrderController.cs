@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplicationCourse.Models;
 
 namespace WebApplicationCourse.Controllers
 {
@@ -16,7 +17,8 @@ namespace WebApplicationCourse.Controllers
             return View();
         }
 
-        public IActionResult Buy()
+        [HttpPost]
+        public IActionResult Buy(Order order)
         {
             var existingCart = cartsRepository.TryGetById(Constants.UserId);
             ordersRepository.Add(existingCart);
