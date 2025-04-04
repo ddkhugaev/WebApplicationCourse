@@ -4,18 +4,18 @@ namespace WebApplicationCourse
 {
     public class InMemoryOrdersRepository : IOrdersRepository
     {
-        List<Cart> orders = new List<Cart>();
-        public Cart TryGetById(string userId)
+        List<Order> orders = new List<Order>();
+        public Order TryGetById(Guid id)
         {
-            return orders.FirstOrDefault(cart => cart.UserId == userId);
+            return orders.FirstOrDefault(order => order.Id == id);
         }
-        public List<Cart> GetAll()
+        public List<Order> GetAll()
         {
             return orders;
         }
-        public void Add(Cart cart)
+        public void Add(Order order)
         {
-            orders.Add(cart);
+            orders.Add(order);
         }
     }
 }

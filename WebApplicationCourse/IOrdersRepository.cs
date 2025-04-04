@@ -4,8 +4,8 @@ namespace WebApplicationCourse
 {
     public interface IOrdersRepository
     {
-        public Cart TryGetById(string userId);
-        public List<Cart> GetAll();
-        public void Add(Cart cart);
+        public Order TryGetById(Guid id);
+        public List<Order> GetAll();
+        public void Add(Order order);
     }
 }

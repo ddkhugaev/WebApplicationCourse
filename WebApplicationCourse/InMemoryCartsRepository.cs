@@ -42,5 +42,10 @@ namespace WebApplicationCourse
                 }
             }
         }
+
+        public void Remove(Cart cart)
+        {
+            carts.Remove(cart);
+        }
     }
 }

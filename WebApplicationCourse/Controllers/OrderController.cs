@@ -18,12 +18,13 @@ namespace WebApplicationCourse.Controllers
         }
 
         [HttpPost]
-        public IActionResult Buy(Order order)
+        public IActionResult Buy(string name, string address, string phone)
         {
             var existingCart = cartsRepository.TryGetById(Constants.UserId);
-            ordersRepository.Add(existingCart);
-            existingCart.ItemsCart.Clear();
-            return View();
+            var order = new Order(name, phone, address, existingCart);
+            ordersRepository.Add(order);
+            cartsRepository.Remove(existingCart);
+            return View(order);
         }
     }
 }
