@@ -26,5 +26,9 @@
                 Total = Prod.Cost * Count;
             }
         }
+        public override string ToString()
+        {
+            return $"Id: {Id} Prod.Name: {Prod.Name} Count: {Count} Total: {Total}";
+        }
     }
 }

@@ -18,12 +18,18 @@ namespace WebApplicationCourse.Controllers
         }
 
         [HttpPost]
-        public IActionResult Buy(string name, string address, string phone)
+        public IActionResult Index(Order order)
         {
-            var existingCart = cartsRepository.TryGetById(Constants.UserId);
-            var order = new Order(name, phone, address, existingCart);
-            ordersRepository.Add(order);
-            cartsRepository.Remove(existingCart);
+            if (ModelState.IsValid)
+            {
+                var existingCart = cartsRepository.TryGetById(Constants.UserId);
+                //var order = new Order(name, phone, address, existingCart);
+                order.CartOrder = existingCart;
+                ordersRepository.Add(order);
+                cartsRepository.Remove(existingCart);
+
+                return Content(order.ToString());
+            }
             return View(order);
         }
     }

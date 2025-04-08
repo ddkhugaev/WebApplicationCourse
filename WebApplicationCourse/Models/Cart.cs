@@ -29,5 +29,15 @@ namespace WebApplicationCourse.Models
         {
             ItemsCart.Remove(positionCart);
         }
+        public override string ToString()
+        {
+            string ans = "";
+            foreach (var item in ItemsCart)
+            {
+                ans += item.ToString() + "\n";
+            }
+            ans += $"Cost: {Cost}";
+            return ans;
+        }
     }
 }
