@@ -18,5 +18,16 @@ namespace WebApplicationCourse
         {
             return products.FirstOrDefault(product => product.Id == id);
         }
+        public void TryRemoveById(int id)
+        {
+            if (TryGetById(id) != null)
+            {
+                products.Remove(TryGetById(id));
+            }
+        }
+        public void AddProduct(Product product)
+        {
+            products.Add(product);
+        }
     }
 }

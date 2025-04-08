@@ -1,6 +1,32 @@
-﻿<div class="row">
+﻿@model IProductsRepository
+
+<div class="row">
     @await Html.PartialAsync("Index")
     <div class="col-6 text-center">
         <h3>Список продуктов</h3>
+        <a asp-controller="Admin" asp-action="AddProduct">Добавить новый продукт</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>№</td>
+                    <td>Название</td>
+                    <td>Цена</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var product in Model.GetAll())
+                {
+                    <tr>
+                        <td>@product.Id</td>
+                        <td><a asp-controller="Product" asp-action="Index" asp-route-id="@product.Id">@product.Name</a></td>
+                        <td>@product.Cost</td>
+                        <td><a href="#">Редактировать</a></td>
+                        <td><a asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@product.Id">Удалить</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>

@@ -6,5 +6,7 @@ namespace WebApplicationCourse
     {
         public List<Product> GetAll();
         public Product TryGetById(int id);
+        public void TryRemoveById(int id);
+        public void AddProduct(Product product);
     }
 }

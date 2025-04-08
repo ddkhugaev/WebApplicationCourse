@@ -17,6 +17,15 @@
             ImagePath = imagePath;
             instanceCounter++;
         }
+        public Product(string name, decimal cost, string description)
+        {
+            Id = instanceCounter;
+            Name = name;
+            Cost = cost;
+            Description = description;
+            ImagePath = "/images/productImage.jpg";
+            instanceCounter++;
+        }
         public override string ToString()
         {
             return $"Id: {Id}\nName: {Name}\nCost: {Cost}р.";
