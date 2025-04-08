@@ -1,12 +1,18 @@
-﻿<form method="post" class="text-center col-3">
+﻿@model User
+
+<form method="post" class="text-center col-3">
     <div class="mb-3">
         <label>Вход</label>
     </div>
     <div class="mb-3">
-        <input type="text" class="form-control" name="login" placeholder="Логин">
+        <label asp-for="Login">Логин</label>
+        <input asp-for="Login" type="text" class="form-control" placeholder="Логин">
+        <span asp-validation-for="Login"></span>
     </div>
     <div class="mb-3">
-        <input type="text" class="form-control" name="password" placeholder="Пароль">
+        <label asp-for="Password">Пароль</label>
+        <input asp-for="Password" type="password" class="form-control" placeholder="Пароль">
+        <span asp-validation-for="Login"></span>
     </div>
     <div class="mb-3">
         <input type="checkbox" class="form-check-input" name="isMemento">
