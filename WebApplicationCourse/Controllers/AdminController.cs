@@ -6,9 +6,11 @@ namespace WebApplicationCourse.Controllers
     public class AdminController : Controller
     {
         readonly IProductsRepository productsRepository;
-        public AdminController(IProductsRepository productsRepository)
+        readonly IOrdersRepository ordersRepository;
+        public AdminController(IProductsRepository productsRepository, IOrdersRepository ordersRepository)
         {
             this.productsRepository = productsRepository;
+            this.ordersRepository = ordersRepository;
         }
         public IActionResult Index()
         {
@@ -16,7 +18,18 @@ namespace WebApplicationCourse.Controllers
         }
         public IActionResult Orders()
         {
-            return View();
+            return View(ordersRepository);
+        }
+        public IActionResult EditOrder(Guid id)
+        {
+            var order = ordersRepository.TryGetById(id);
+            return View(order);
+        }
+        public IActionResult OrderNewStatus(Guid id, string status)
+        {
+            var order = ordersRepository.TryGetById(id);
+            order.Status = status;
+            return RedirectToAction("EditOrder", new { id = id });
         }
         public IActionResult Users()
         {

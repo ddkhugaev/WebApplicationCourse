@@ -23,6 +23,16 @@ namespace WebApplicationCourse.Models
         //    Address = address;
         //    CartOrder = cartOrder;
         //}
+
+        // добавлено позже
+        public string Status { get; set; } = "Создан";
+        public DateTime OrderTime;
+        public string UserName = "Заглушка пользователя в заказе";
+        public string Commentary = "Заглущка комментария в заказе";
+        public Order()
+        {
+            OrderTime = DateTime.Now;
+        }
         public override string ToString()
         {
             return $"Id: {Id}\nName: {Name}\nPhone: {Phone}\nAddress: {Address}\nCartOrder:\n{CartOrder}";

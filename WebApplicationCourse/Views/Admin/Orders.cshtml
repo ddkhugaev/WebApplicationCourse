@@ -1,6 +1,33 @@
-﻿<div class="row">
+﻿@model IOrdersRepository
+
+<div class="row">
     @await Html.PartialAsync("Index")
     <div class="col-6 text-center">
         <h3>Список заказов</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>№</td>
+                    <td>Сумма</td>
+                    <td>Статус</td>
+                    <td>Пользователь (логин)</td>
+                    <td>Дата</td>
+                    <td>Время</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model.GetAll())
+                {
+                    <tr>
+                        <td>0</td>
+                        <td>@order.CartOrder.Cost</td>
+                        <td><a asp-controller="Admin" asp-action="EditOrder" asp-route-id="@order.Id">@order.Status</a></td>
+                        <td>@order.UserName</td>
+                        <td>@order.OrderTime.ToShortDateString()</td>
+                        <td>@order.OrderTime.ToShortTimeString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
