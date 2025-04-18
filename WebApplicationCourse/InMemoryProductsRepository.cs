@@ -25,6 +25,13 @@ namespace WebApplicationCourse
                 products.Remove(TryGetById(id));
             }
         }
+        public void EditById(int id, Product editProduct)
+        {
+            var product = TryGetById(id);
+            product.Name = editProduct.Name;
+            product.Cost = editProduct.Cost;
+            product.Description = editProduct.Description;
+        }
         public void AddProduct(Product product)
         {
             products.Add(product);

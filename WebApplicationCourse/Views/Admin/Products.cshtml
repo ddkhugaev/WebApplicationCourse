@@ -22,7 +22,7 @@
                         <td>@product.Id</td>
                         <td><a asp-controller="Product" asp-action="Index" asp-route-id="@product.Id">@product.Name</a></td>
                         <td>@product.Cost</td>
-                        <td><a href="#">Редактировать</a></td>
+                        <td><a asp-controller="Admin" asp-action="EditProduct" asp-route-id="@product.Id">Редактировать</a></td>
                         <td><a asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@product.Id">Удалить</a></td>
                     </tr>
                 }

@@ -50,5 +50,21 @@ namespace WebApplicationCourse.Controllers
             }
             return View();
         }
+        public IActionResult EditProduct(int id)
+        {
+            var product = productsRepository.TryGetById(id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult EditProduct(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                productsRepository.EditById(product.Id, product);
+                return RedirectToAction("Products");
+            }
+            return View();
+        }
     }
 }

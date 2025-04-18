@@ -2,24 +2,24 @@
 
 <form method="post" class="text-center col-3">
     <div class="mb-3">
-        <label>Добавить новый продукт</label>
+        <label>Изменить продукт</label>
     </div>
     <div class="mb-3">
         <label asp-for="Name">Название</label>
-        <input asp-for="Name" type="text" class="form-control" placeholder="Название">
+        <input asp-for="Name" type="text" class="form-control" placeholder="Название" value="@Model.Name">
         <span asp-validation-for="Name"></span>
     </div>
     <div class="mb-3">
         <label asp-for="Cost">Цена</label>
-        <input asp-for="Cost" type="number" class="form-control" placeholder="Цена">
+        <input asp-for="Cost" type="number" class="form-control" placeholder="Цена" value="@Model.Cost">
         <span asp-validation-for="Cost"></span>
     </div>
     <div class="mb-3">
         <label asp-for="Description">Описание</label>
-        <input asp-for="Description" type="text" class="form-control" placeholder="Описание">
+        <input asp-for="Description" type="text" class="form-control" placeholder="Описание" value="@Model.Description">
         <span asp-validation-for="Description"></span>
     </div>
     <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Добавить</button>
+        <button type="submit" class="btn btn-primary">Изменить</button>
     </div>
 </form>
