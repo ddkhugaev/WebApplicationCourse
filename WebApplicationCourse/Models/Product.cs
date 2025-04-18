@@ -1,31 +1,29 @@
-﻿namespace WebApplicationCourse.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApplicationCourse.Models
 {
     public class Product
     {
         static int instanceCounter = 0;
-        public int Id { get; }
-        public string Name { get; }
-        public decimal Cost { get; }
-        public string Description { get; }
-        public string ImagePath { get; }
-        public Product(string name, decimal cost, string description, string imagePath)
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "Не указано название")]
+        [StringLength(25, MinimumLength = 2, ErrorMessage = "Длина логина должна быть от 2 до 25 символов")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Не указана цена")]
+        public decimal Cost { get; set; }
+
+        [Required(ErrorMessage = "Не указано описание")]
+        public string Description { get; set; }
+        public string ImagePath { get; set; } = "/images/productImage.jpg";
+
+        public Product()
         {
             Id = instanceCounter;
-            Name = name;
-            Cost = cost;
-            Description = description;
-            ImagePath = imagePath;
             instanceCounter++;
         }
-        public Product(string name, decimal cost, string description)
-        {
-            Id = instanceCounter;
-            Name = name;
-            Cost = cost;
-            Description = description;
-            ImagePath = "/images/productImage.jpg";
-            instanceCounter++;
-        }
+
         public override string ToString()
         {
             return $"Id: {Id}\nName: {Name}\nCost: {Cost}р.";

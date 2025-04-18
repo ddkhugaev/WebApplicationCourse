@@ -1,17 +1,25 @@
-﻿<form method="post" class="text-center col-3">
+﻿@model Product
+
+<form method="post" class="text-center col-3">
     <div class="mb-3">
         <label>Добавить новый продукт</label>
     </div>
     <div class="mb-3">
-        <input type="text" class="form-control" name="name" placeholder="Название">
+        <label asp-for="Name">Название</label>
+        <input asp-for="Name" type="text" class="form-control" placeholder="Название">
+        <span asp-validation-for="Name"></span>
     </div>
     <div class="mb-3">
-        <input type="number" class="form-control" name="cost" placeholder="Цена">
+        <label asp-for="Cost">Цена</label>
+        <input asp-for="Cost" type="number" class="form-control" placeholder="Цена">
+        <span asp-validation-for="Cost"></span>
     </div>
     <div class="mb-3">
-        <input type="text" class="form-control" name="description" placeholder="Описание">
-    </div>
+        <label asp-for="Description">Описание</label>
+        <input asp-for="Description" type="text" class="form-control" placeholder="Описание">
+        <span asp-validation-for="Description"></span>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Добавить</button>
+    </div>
     </div>
 </form>

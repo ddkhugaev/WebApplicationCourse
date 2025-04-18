@@ -6,9 +6,9 @@ namespace WebApplicationCourse
     {
         List<Product> products =
             [
-            new Product("Картье", 200, "Хороший", "/images/productImage.jpg"),
-            new Product("Портье", 4500, "Тоже хороший", "/images/productImage.jpg"),
-            new Product("Еще товар", 300, "Неплохой", "/images/productImage.jpg")
+            new Product(){ Name = "Картье", Cost = 200, Description = "Хороший"},
+            new Product(){ Name = "Портье", Cost = 4500, Description = "Тоже хороший"},
+            new Product(){ Name = "Еще товар", Cost = 300, Description = "Неплохой"}
             ];
         public List<Product> GetAll()
         {

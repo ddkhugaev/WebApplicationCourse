@@ -40,11 +40,15 @@ namespace WebApplicationCourse.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddProduct(string name, int cost, string description)
+        public IActionResult AddProduct(Product product)
         {
-            var product = new Product(name, cost, description);
-            productsRepository.AddProduct(product);
-            return RedirectToAction("Products");
+            //var product = new Product() { Name = name, Description = description, Cost = cost};
+            if (ModelState.IsValid)
+            {
+                productsRepository.AddProduct(product);
+                return RedirectToAction("Products");
+            }
+            return View();
         }
     }
 }
