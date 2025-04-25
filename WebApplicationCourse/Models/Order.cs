@@ -25,13 +25,14 @@ namespace WebApplicationCourse.Models
         //}
 
         // добавлено позже
-        public string Status { get; set; } = "Создан";
+        public OrderStatus Status { get; set; }
         public DateTime OrderTime;
         public string UserName = "Заглушка пользователя в заказе";
-        public string Commentary = "Заглущка комментария в заказе";
+        public string Commentary = "Заглушка комментария в заказе";
         public Order()
         {
             OrderTime = DateTime.Now;
+            Status = OrderStatus.Created;
         }
         public override string ToString()
         {

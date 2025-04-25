@@ -21,7 +21,7 @@
                     <tr>
                         <td>0</td>
                         <td>@order.CartOrder.Cost</td>
-                        <td><a asp-controller="Admin" asp-action="EditOrder" asp-route-id="@order.Id">@order.Status</a></td>
+                        <td><a asp-controller="Admin" asp-action="EditOrder" asp-route-id="@order.Id">@EnumHelper.GetDisplayName(order.Status)</a></td>
                         <td>@order.UserName</td>
                         <td>@order.OrderTime.ToShortDateString()</td>
                         <td>@order.OrderTime.ToShortTimeString()</td>

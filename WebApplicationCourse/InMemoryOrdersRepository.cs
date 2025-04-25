@@ -17,5 +17,13 @@ namespace WebApplicationCourse
         {
             orders.Add(order);
         }
+        public void UpdateOrderStatus(Guid id, OrderStatus status)
+        {
+            var order = TryGetById(id);
+            if (order != null)
+            {
+                order.Status = status;
+            }
+        }
     }
 }

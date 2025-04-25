@@ -7,5 +7,6 @@ namespace WebApplicationCourse
         public Order TryGetById(Guid id);
         public List<Order> GetAll();
         public void Add(Order order);
+        public void UpdateOrderStatus(Guid id, OrderStatus status);
     }
 }

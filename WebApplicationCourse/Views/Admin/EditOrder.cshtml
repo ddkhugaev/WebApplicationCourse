@@ -2,57 +2,65 @@
 
 <div class="row">
     @await Html.PartialAsync("Index")
-    <div class="col-6 text-center">
-        <h3>Заказ № 0</h3>
-        <table class="table">
-            <tbody>
-                <tr>
-                    <td>Дата и время оформления:</td>
-                    <td>@Model.OrderTime.ToShortDateString() в @Model.OrderTime.ToShortTimeString()</td>
-                </tr>
-                <tr>
-                    <td>Адрес доставки:</td>
-                    <td>@Model.Address</td>
-                </tr>
-                <tr>
-                    <td>Получатель:</td>
-                    <td>@Model.Name</td>
-                </tr>
-                <tr>
-                    <td>Телефон:</td>
-                    <td>@Model.Phone</td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td>@Model.UserName</td>
-                </tr>
-                <tr>
-                    <td>Комментарий:</td>
-                    <td>@Model.Commentary</td>
-                </tr>
-                <tr>
-                    <td>Сумма заказа:</td>
-                    <td>@Model.CartOrder.Cost</td>
-                </tr>
-                <tr>
-                    <td>Статус заказа:</td>
-                    <td>
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                @Model.Status
-                            </a>
+    <form method="post">
+        <div class="col-6 text-center">
+            <h3>Заказ № 0</h3>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Дата и время оформления:</td>
+                        <td>@Model.OrderTime.ToShortDateString() в @Model.OrderTime.ToShortTimeString()</td>
+                    </tr>
+                    <tr>
+                        <td>Адрес доставки:</td>
+                        <td>@Model.Address</td>
+                    </tr>
+                    <tr>
+                        <td>Получатель:</td>
+                        <td>@Model.Name</td>
+                    </tr>
+                    <tr>
+                        <td>Телефон:</td>
+                        <td>@Model.Phone</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>@Model.UserName</td>
+                    </tr>
+                    <tr>
+                        <td>Комментарий:</td>
+                        <td>@Model.Commentary</td>
+                    </tr>
+                    <tr>
+                        <td>Сумма заказа:</td>
+                        <td>@Model.CartOrder.Cost</td>
+                    </tr>
+                    <tr>
+                        <td>Статус заказа:</td>
+                        <td>
+                            <select asp-for="@Model.Status" asp-items="@Html.GetEnumSelectList<OrderStatus>()" class="form-control" name="status">
+                            </select>
+                        </td>
+                        @* <td> *@
+                        @*     <div class="dropdown"> *@
+                        @*         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> *@
+                        @*             @Model.Status *@
+                        @*         </a> *@
 
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="Создан">Создан</a></li>
-                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="Обработан">Обработан</a></li>
-                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="В пути">В пути</a></li>
-                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="Отменен">Отменен</a></li>
-                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="Доставлен">Доставлен</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                        @*         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"> *@
+                        @*             <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="Создан">Создан</a></li> *@
+                        @*             <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="Обработан">Обработан</a></li> *@
+                        @*             <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="В пути">В пути</a></li> *@
+                        @*             <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="Отменен">Отменен</a></li> *@
+                        @*             <li><a class="dropdown-item" asp-controller="Admin" asp-action="OrderNewStatus" asp-route-id="@Model.Id" asp-route-status="Доставлен">Доставлен</a></li> *@
+                        @*         </ul> *@
+                        @*     </div> *@
+                        @* </td> *@
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-success" type="submit" asp-controller="Admin" asp-action="EditOrder" asp-route-id="@Model.Id">Изменить</button>
+    </form>
+    
 </div>

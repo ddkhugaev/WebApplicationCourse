@@ -25,12 +25,20 @@ namespace WebApplicationCourse.Controllers
             var order = ordersRepository.TryGetById(id);
             return View(order);
         }
-        public IActionResult OrderNewStatus(Guid id, string status)
+
+        [HttpPost]
+        public IActionResult EditOrder(Guid id, OrderStatus status)
         {
             var order = ordersRepository.TryGetById(id);
-            order.Status = status;
-            return RedirectToAction("EditOrder", new { id = id });
+            ordersRepository.UpdateOrderStatus(id, status);
+            return RedirectToAction("Orders");
         }
+        //public IActionResult OrderNewStatus(Guid id, string status)
+        //{
+        //    var order = ordersRepository.TryGetById(id);
+        //    order.Status = status;
+        //    return RedirectToAction("EditOrder", new { id = id });
+        //}
         public IActionResult Users()
         {
             return View();
