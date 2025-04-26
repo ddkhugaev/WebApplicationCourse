@@ -4,6 +4,7 @@
     <div class="mb-3">
         <label>Изменить продукт</label>
     </div>
+    <div class="text-danger font-weight-bold" asp-validation-summary="All"></div>
     <div class="mb-3">
         <label asp-for="Name">Название</label>
         <input asp-for="Name" type="text" class="form-control" placeholder="Название" value="@Model.Name">
