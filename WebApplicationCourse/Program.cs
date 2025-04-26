@@ -1,6 +1,12 @@
 using WebApplicationCourse;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//serilog
+builder.Host.UseSerilog((context, configuration) => configuration
+.ReadFrom.Configuration(context.Configuration)
+.Enrich.WithProperty("ApplicationName", "WebApplicationCourse"));
 
 // Add services to the container.
 builder.Services.AddSingleton<IProductsRepository, InMemoryProductsRepository>();
@@ -10,6 +16,9 @@ builder.Services.AddSingleton<IRolesRepository, InMemoryRolesRepository>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+//serilog
+app.UseSerilogRequestLogging();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
