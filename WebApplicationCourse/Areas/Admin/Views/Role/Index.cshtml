@@ -1,10 +1,10 @@
 ﻿@model List<Role>
 
 <div class="row">
-    @await Html.PartialAsync("Index")
+    @await Html.PartialAsync("AdminLeftMenu")
     <div class="col-6 text-center">
         <h3>Список ролей</h3>
-        <a asp-controller="Admin" asp-action="AddRole">Добавить новую роль</a>
+        <a asp-area="Admin" asp-controller="Role" asp-action="AddRole">Добавить новую роль</a>
         <table class="table">
             <thead>
                 <tr>
@@ -19,7 +19,7 @@
                     <tr>
                         <td>@(i + 1)</td>
                         <td>@Model[i].Name</td>
-                        <td><a asp-controller="Admin" asp-action="RemoveRole" asp-route-name="@Model[i].Name">Удалить</a></td>
+                        <td><a asp-area="Admin" asp-controller="Role" asp-action="RemoveRole" asp-route-name="@Model[i].Name">Удалить</a></td>
                     </tr>
                 }
             </tbody>

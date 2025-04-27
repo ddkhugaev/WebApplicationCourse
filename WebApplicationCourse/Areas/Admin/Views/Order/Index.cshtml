@@ -1,7 +1,7 @@
 ﻿@model IOrdersRepository
 
 <div class="row">
-    @await Html.PartialAsync("Index")
+    @await Html.PartialAsync("AdminLeftMenu")
     <div class="col-6 text-center">
         <h3>Список заказов</h3>
         <table class="table">
@@ -21,7 +21,7 @@
                     <tr>
                         <td>0</td>
                         <td>@order.CartOrder.Cost</td>
-                        <td><a asp-controller="Admin" asp-action="EditOrder" asp-route-id="@order.Id">@EnumHelper.GetDisplayName(order.Status)</a></td>
+                        <td><a asp-area="Admin" asp-controller="Order" asp-action="EditOrder" asp-route-id="@order.Id">@EnumHelper.GetDisplayName(order.Status)</a></td>
                         <td>@order.UserName</td>
                         <td>@order.OrderTime.ToShortDateString()</td>
                         <td>@order.OrderTime.ToShortTimeString()</td>

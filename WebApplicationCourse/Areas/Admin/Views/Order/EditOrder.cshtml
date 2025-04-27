@@ -1,7 +1,7 @@
 ﻿@model Order
 
 <div class="row">
-    @await Html.PartialAsync("Index")
+    @await Html.PartialAsync("AdminLeftMenu")
     <form method="post">
         <div class="col-6 text-center">
             <h3>Заказ № 0</h3>
@@ -60,7 +60,7 @@
                 </tbody>
             </table>
         </div>
-        <button class="btn btn-success" type="submit" asp-controller="Admin" asp-action="EditOrder" asp-route-id="@Model.Id">Изменить</button>
+        <button class="btn btn-success" type="submit" asp-area="Admin" asp-controller="Order" asp-action="EditOrder" asp-route-id="@Model.Id">Изменить</button>
     </form>
     
 </div>

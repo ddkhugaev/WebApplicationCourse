@@ -1,15 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplicationCourse.Models;
 
 namespace WebApplicationCourse.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AdminController : Controller
+    public class UserController : Controller
     {
-        public AdminController()
-        {
-            
-        }
         public IActionResult Index()
         {
             return View();
