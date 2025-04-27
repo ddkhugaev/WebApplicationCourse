@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplicationCourse.Models;
 
-namespace WebApplicationCourse.Controllers
+namespace WebApplicationCourse.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class AdminController : Controller
     {
         readonly IProductsRepository productsRepository;
