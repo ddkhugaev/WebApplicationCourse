@@ -5,9 +5,10 @@ namespace WebApplicationCourse.Controllers
 {
     public class UserController : Controller
     {
-        public UserController()
+        readonly IUsersRepository usersRepository;
+        public UserController(IUsersRepository usersRepository)
         {
-
+            this.usersRepository = usersRepository;
         }
         public IActionResult Index()
         {
@@ -36,7 +37,7 @@ namespace WebApplicationCourse.Controllers
             }
             if (ModelState.IsValid)
             {
-                return Content(user.ToString());
+                usersRepository.Add(user);
             }
             return View(user);
         }
