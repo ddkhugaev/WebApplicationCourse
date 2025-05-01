@@ -9,5 +9,6 @@ namespace WebApplicationCourse
         public void Add(User user);
         public bool IsLoginExist(string login);
         public bool IsPasswordCorrect(string login, string password);
+        public void Remove(Guid id);
     }
 }

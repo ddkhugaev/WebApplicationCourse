@@ -4,7 +4,7 @@ namespace WebApplicationCourse
 {
     public class InMemoryUsersRepository : IUsersRepository
     {
-        List<User> users = new List<User>();
+        List<User> users = new List<User>() { new User() { Login="ddkhugaev", Password="1234", Id=Guid.NewGuid()} };
         public List<User> GetAll()
         {
             return users;
@@ -41,6 +41,14 @@ namespace WebApplicationCourse
                 }
             }
             return false;
+        }
+
+        public void Remove(Guid id)
+        {
+            if (TryGetById(id) != null)
+            {
+                users.Remove(TryGetById(id));
+            }
         }
     }
 }

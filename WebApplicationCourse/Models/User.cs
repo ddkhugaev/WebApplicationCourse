@@ -17,6 +17,10 @@ namespace WebApplicationCourse.Models
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
 
+
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Phone { get; set; }
         public User()
         {
             Id = Guid.NewGuid();

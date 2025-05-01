@@ -1,0 +1,31 @@
+﻿@model User
+
+<form method="post" class="text-center col-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger font-weight-bold"></div>
+    <div class="mb-3">
+        <label>Редактирование данных</label>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Login">Логин</label>
+        <input asp-for="Login" type="text" class="form-control" placeholder="Логин">
+        <span asp-validation-for="Login"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Name">Имя</label>
+        <input asp-for="Name" type="text" class="form-control" placeholder="Имя">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Surname">Фамилия</label>
+        <input asp-for="Surname" type="text" class="form-control" placeholder="Фамилия">
+        <span asp-validation-for="Surname"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Phone">Номер</label>
+        <input asp-for="Phone" type="text" class="form-control" placeholder="Номер">
+        <span asp-validation-for="Phone"></span>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Изменить</button>
+    </div>
+</form>

@@ -1,6 +1,32 @@
-﻿<div class="row">
+﻿@model IUsersRepository
+
+<div class="row">
     @await Html.PartialAsync("AdminLeftMenu")
     <div class="col-6 text-center">
         <h3>Список пользователей</h3>
+        <a asp-area="" asp-controller="User" asp-action="Registration">Добавить нового пользователя</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Email (логин)</td>
+                    <td>Имя</td>
+                    <td>Фамилия</td>
+                    <td>Телефон</td>
+                    <td>password</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.GetAll())
+                {
+                    <tr>
+                        <td><a asp-area="Admin" asp-controller="User" asp-action="UserDetails" asp-route-id="@user.Id">@user.Login</a></td>
+                        <td>@user.Name</td>
+                        <td>@user.Surname</td>
+                        <td>@user.Phone</td>
+                        <td>@user.Password</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
