@@ -19,5 +19,28 @@ namespace WebApplicationCourse
         {
             users.Add(user);
         }
+
+        public bool IsLoginExist(string login)
+        {
+            User user = users.FirstOrDefault(x => x.Login == login);
+            if (user != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool IsPasswordCorrect(string login, string password)
+        {
+            User user = users.FirstOrDefault(x => x.Login == login);
+            if (user != null)
+            {
+                if (user.Password == password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

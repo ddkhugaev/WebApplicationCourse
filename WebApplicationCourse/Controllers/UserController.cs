@@ -18,6 +18,10 @@ namespace WebApplicationCourse.Controllers
         public IActionResult Index(User user)
         {
             ModelState.Remove("ConfirmPassword");
+            if (!usersRepository.IsPasswordCorrect(user.Login, user.Password))
+            {
+                ModelState.AddModelError("", "Неправильный логин или пароль");
+            }
             if (ModelState.IsValid)
             {
                 return Content(user.ToString());
@@ -35,9 +39,14 @@ namespace WebApplicationCourse.Controllers
             {
                 ModelState.AddModelError("", "Логин и пароль не должны совпадать");
             }
+            if (usersRepository.IsLoginExist(user.Login))
+            {
+                ModelState.AddModelError("", "Такой логин уже используется");
+            }
             if (ModelState.IsValid)
             {
                 usersRepository.Add(user);
+                return RedirectToAction("Index");
             }
             return View(user);
         }

@@ -7,5 +7,7 @@ namespace WebApplicationCourse
         public List<User> GetAll();
         public User TryGetById(Guid id);
         public void Add(User user);
+        public bool IsLoginExist(string login);
+        public bool IsPasswordCorrect(string login, string password);
     }
 }
